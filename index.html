@@ -1011,6 +1011,12 @@
       color: #fff;
     }
     .cta-banner .cta-btns .cta-wa:hover { background: #20bd5a; transform: translateY(-2px); }
+    .cta-banner .cta-btns .cta-icon { display: none; }
+    @media (max-width: 768px) {
+      .cta-banner .cta-btns a { gap: 0; padding: 0; width: 56px; height: 56px; border-radius: 50%; justify-content: center; }
+      .cta-banner .cta-btns .cta-text { display: none; }
+      .cta-banner .cta-btns .cta-icon { display: inline; font-size: 24px; }
+    }
 
     /* Footer */
     footer {
@@ -1244,8 +1250,8 @@
     <h2>Ready to <span>Drive?</span></h2>
     <p>Call or WhatsApp us now to book your vehicle.</p>
     <div class="cta-btns">
-      <a href="tel:+94752985632" class="cta-phone">📞 Call Now</a>
-      <a href="https://wa.me/94752985632" target="_blank" class="cta-wa">💬 WhatsApp Us</a>
+      <a href="tel:+94752985632" class="cta-phone"><span class="cta-icon">📞</span><span class="cta-text">Call Now</span></a>
+      <a href="https://wa.me/94752985632" target="_blank" class="cta-wa"><span class="cta-icon">💬</span><span class="cta-text">WhatsApp Us</span></a>
     </div>
   </div>
 
@@ -1266,8 +1272,8 @@
         <div class="qa-a">Absolutely. Every rental includes comprehensive insurance coverage so you can drive with complete peace of mind.</div>
       </div>
       <div class="qa-item">
-        <div class="qa-q"><span class="qa-icon">⛽</span> How do the km limits work?<span class="qa-arrow">▼</span></div>
-        <div class="qa-a">For first-time customers, 60km free per rental. Extra km charges depend on the vehicle fees. No hidden fees, no surprises.</div>
+        <div class="qa-q"><span class="qa-icon">🎁</span> What about km limits for first-time customers?<span class="qa-arrow">▼</span></div>
+        <div class="qa-a">60km free per rental for first-time customers. Extra km charges depend on the vehicle fees. No hidden fees, no surprises.</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qa-icon">📞</span> How do I make a booking?<span class="qa-arrow">▼</span></div>
