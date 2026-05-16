@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RS Car Renter - Premium Car Rentals Sri Lanka</title>
+  <meta name="description" content="RS Car Renter - Premium self-drive car rentals in Colombo, Sri Lanka. Trusted vehicles, transparent pricing, island-wide delivery." />
+  <meta name="keywords" content="car rental Sri Lanka, self-drive cars Colombo, vehicle hire Sri Lanka, premium car rental" />
+  <title>RS Car Renter - Premium Self-Drive Car Rentals Sri Lanka</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #f0a500;
+      --gold-hover: #ffb820;
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --text: #fff;
+      --text-muted: #888;
+      --border: rgba(255,255,255,0.06);
+      --transition: all 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
 
     .reveal {
       opacity: 0;
@@ -21,9 +37,21 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0f;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: #0a0a0f; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .slogan-text {
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 12px;
+      opacity: 0.7;
     }
 
     /* Nav */
@@ -53,7 +81,17 @@
       font-weight: 900;
       letter-spacing: 3px;
     }
-    .logo span { color: #f0a500; }
+    .logo span { color: var(--gold); }
+    .logo .slogan {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
 
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
@@ -63,11 +101,12 @@
       font-weight: 500;
       letter-spacing: 1px;
       transition: color 0.3s;
+      cursor: pointer;
     }
-    .nav-links a:hover { color: #f0a500; }
+    .nav-links a:hover { color: var(--gold); }
 
     .btn-book {
-      background: #f0a500;
+      background: var(--gold);
       color: #0a0a0f;
       border: none;
       padding: 10px 28px;
@@ -76,10 +115,10 @@
       letter-spacing: 1px;
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s;
+      transition: var(--transition);
       font-family: 'Inter', sans-serif;
     }
-    .btn-book:hover { background: #ffb820; transform: translateY(-2px); }
+    .btn-book:hover { background: var(--gold-hover); transform: translateY(-2px); }
 
     /* Hero */
     .hero {
@@ -92,7 +131,7 @@
       padding: 80px 20px 40px;
       position: relative;
       overflow: hidden;
-      background: #0a0a0f;
+      background: var(--bg);
     }
     .hero::before {
       content: '';
@@ -110,7 +149,7 @@
       display: inline-block;
       font-size: 11px;
       letter-spacing: 5px;
-      color: #f0a500;
+      color: var(--gold);
       text-transform: uppercase;
       margin-bottom: 28px;
       border: 1px solid rgba(240,165,0,0.15);
@@ -121,32 +160,26 @@
 
     .hero h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 72px;
+      font-size: 60px;
       font-weight: 900;
-      letter-spacing: 8px;
+      letter-spacing: 6px;
       line-height: 1.05;
       margin-bottom: 8px;
     }
-    .hero h1 .line1 {
-      display: block;
-      color: #fff;
-    }
-    .hero h1 .line2 {
-      display: block;
-      color: #f0a500;
-    }
+    .hero h1 .line1 { display: block; color: #fff; }
+    .hero h1 .line2 { display: block; color: var(--gold); }
 
-    .hero-sub {
-      font-size: 13px;
-      color: #f0a500;
+    .hero .slogan {
+      font-size: 14px;
+      color: var(--gold);
       letter-spacing: 6px;
       text-transform: uppercase;
       margin-top: 12px;
       position: relative;
       font-weight: 600;
     }
-    .hero-sub::before,
-    .hero-sub::after {
+    .hero .slogan::before,
+    .hero .slogan::after {
       content: '';
       display: inline-block;
       width: 30px;
@@ -156,23 +189,26 @@
       margin: 0 14px;
     }
 
-    .hero p {
-      font-size: 15px;
-      color: #888;
+    .hero .hero-tagline {
+      font-size: 16px;
+      color: #ccc;
       margin-top: 16px;
-      max-width: 440px;
+      max-width: 520px;
       letter-spacing: 0.3px;
       line-height: 1.8;
+      font-weight: 400;
     }
 
     .hero-cta {
-      margin-top: 24px;
+      margin-top: 28px;
       display: flex;
       gap: 16px;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .hero-cta .btn-primary {
-      background: #f0a500;
+      background: var(--gold);
       color: #0a0a0f;
       border: none;
       padding: 16px 44px;
@@ -181,12 +217,12 @@
       letter-spacing: 1.5px;
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s;
+      transition: var(--transition);
       font-family: 'Inter', sans-serif;
       text-transform: uppercase;
     }
     .hero-cta .btn-primary:hover {
-      background: #ffb820;
+      background: var(--gold-hover);
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(240,165,0,0.25);
     }
@@ -200,13 +236,13 @@
       letter-spacing: 1.5px;
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s;
+      transition: var(--transition);
       font-family: 'Inter', sans-serif;
       text-transform: uppercase;
     }
     .hero-cta .btn-outline:hover {
       border-color: rgba(255,255,255,0.3);
-      color: #f0a500;
+      color: var(--gold);
       transform: translateY(-2px);
     }
 
@@ -224,26 +260,22 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 42px;
       font-weight: 900;
-      color: #f0a500;
+      color: var(--gold);
       letter-spacing: 2px;
     }
     .hero-stats .label {
       font-size: 14px;
-      color: #888;
+      color: var(--text-muted);
       letter-spacing: 2px;
       margin-top: 6px;
       text-transform: uppercase;
     }
 
-    /* Cars Section */
-    .cars-section {
-      padding: 60px 40px 80px;
-      background: #0a0a0f;
-    }
-
+    /* Section Common */
+    section { padding: 80px 40px; }
     .section-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
     .section-header h2 {
       font-family: 'Orbitron', sans-serif;
@@ -251,12 +283,190 @@
       font-weight: 800;
       letter-spacing: 3px;
     }
-    .section-header h2 span { color: #f0a500; }
+    .section-header h2 span { color: var(--gold); }
     .section-header p {
-      color: #777;
+      color: var(--text-muted);
       margin-top: 10px;
       font-size: 14px;
       letter-spacing: 0.5px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Why Choose Us */
+
+    /* Reviews */
+    .reviews-section {
+      background: linear-gradient(180deg, #0e0e18, #0a0a0f);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .reviews-section .section-header {
+      padding: 60px 40px 0;
+    }
+    .reviews-swiper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 30px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .review-card {
+      background: linear-gradient(145deg, var(--bg-card), #0e0e15);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      text-align: center;
+      height: auto;
+      box-sizing: border-box;
+      margin: 0 4px;
+    }
+    .review-card .g-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+    }
+    .review-card .g-icon svg { width: 100%; height: 100%; }
+    .review-card .google-stars {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .review-card .google-stars svg {
+      width: 20px;
+      height: 20px;
+    }
+    .review-card .review-text {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .review-card .review-author {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .review-card .review-location {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .reviews-swiper .swiper-button-prev,
+    .reviews-swiper .swiper-button-next {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #aaa;
+      transition: var(--transition);
+      margin-top: -20px;
+    }
+    .reviews-swiper .swiper-button-prev:after,
+    .reviews-swiper .swiper-button-next:after {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .reviews-swiper .swiper-button-prev:hover,
+    .reviews-swiper .swiper-button-next:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(240,165,0,0.08);
+    }
+    .reviews-swiper .swiper-button-prev { left: 10px; }
+    .reviews-swiper .swiper-button-next { right: 10px; }
+    .reviews-swiper .swiper-pagination {
+      position: relative;
+      bottom: 0 !important;
+      margin-top: 20px;
+    }
+    .reviews-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      opacity: 1;
+      transition: var(--transition);
+    }
+    .reviews-swiper .swiper-pagination-bullet-active {
+      background: var(--gold);
+      width: 24px;
+      border-radius: 4px;
+    }
+    .reviews-swiper .swiper-slide {
+      transition: opacity 0.4s ease;
+    }
+    .reviews-swiper .swiper-slide:not(.swiper-slide-active) .review-card {
+      opacity: 0.45;
+    }
+
+    /* About */
+    .about-section {
+      background: #0a0a0f;
+    }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-image {
+      flex: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #111;
+      aspect-ratio: 16 / 10;
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-content {
+      flex: 1;
+    }
+    .about-content h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    .about-content h2 span { color: var(--gold); }
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    .about-content .about-features {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .about-content .about-features span {
+      font-size: 13px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .about-content .about-features .af-icon {
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    /* Cars Section */
+    .cars-section {
+      padding: 60px 40px 80px;
+      background: #0a0a0f;
     }
 
     .car-container {
@@ -318,10 +528,10 @@
       font-weight: 800;
       letter-spacing: 2px;
     }
-    .car-info h3 span { color: #f0a500; }
+    .car-info h3 span { color: var(--gold); }
 
     .car-info .car-type {
-      color: #888;
+      color: var(--text-muted);
       font-size: 13px;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -335,6 +545,7 @@
       padding: 16px 0;
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
     }
     .car-info .specs span {
       font-size: 13px;
@@ -343,11 +554,11 @@
       align-items: center;
       gap: 6px;
     }
-    .car-info .specs .icon { color: #f0a500; }
+    .car-info .specs .icon { color: var(--gold); }
 
     .car-info .desc {
       font-size: 14px;
-      color: #777;
+      color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 16px;
     }
@@ -357,26 +568,23 @@
       align-items: baseline;
       gap: 12px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
     .car-info .price {
       font-family: 'Orbitron', sans-serif;
       font-size: 32px;
       font-weight: 800;
-      color: #f0a500;
+      color: var(--gold);
     }
     .car-info .price small {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      color: #888;
-    }
-    .car-info .price-note {
-      font-size: 13px;
-      color: #555;
+      color: var(--text-muted);
     }
 
     .car-info .btn-rent {
-      background: #f0a500;
+      background: var(--gold);
       color: #0a0a0f;
       border: none;
       padding: 14px 40px;
@@ -385,16 +593,17 @@
       letter-spacing: 1px;
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s;
+      transition: var(--transition);
       font-family: 'Inter', sans-serif;
     }
-    .car-info .btn-rent:hover { background: #ffb820; transform: translateY(-2px); }
+    .car-info .btn-rent:hover { background: var(--gold-hover); transform: translateY(-2px); }
+
 
     /* Contact Form */
     .contact-section {
       padding: 60px 40px;
       background: linear-gradient(180deg, #0e0e18, #0a0a0f);
-      border-top: 1px solid rgba(255,255,255,0.03);
+      border-top: 1px solid var(--border);
     }
     .contact-inner {
       max-width: 1100px;
@@ -410,29 +619,29 @@
       font-weight: 800;
       letter-spacing: 2px;
     }
-    .contact-info h2 span { color: #f0a500; }
-    .contact-info p {
-      color: #777;
+    .contact-info h2 span { color: var(--gold); }
+    .contact-info .contact-sub {
+      color: var(--text-muted);
       margin-top: 8px;
       font-size: 14px;
       line-height: 1.7;
     }
     .contact-info .contact-details {
-      margin-top: 20px;
+      margin-top: 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
-    .contact-info .contact-details a {
+    .contact-info .contact-details a,
+    .contact-info .contact-details .contact-row {
       display: flex;
       align-items: center;
       gap: 12px;
       color: #ccc;
-      text-decoration: none;
       font-size: 15px;
       transition: color 0.3s;
     }
-    .contact-info .contact-details a:hover { color: #f0a500; }
+    .contact-info .contact-details a:hover { color: var(--gold); }
     .contact-info .contact-details .cd-icon {
       width: 40px;
       height: 40px;
@@ -442,13 +651,31 @@
       align-items: center;
       justify-content: center;
       font-size: 18px;
+      flex-shrink: 0;
     }
     .contact-info .contact-details .cd-icon svg { width: 20px; height: 20px; }
 
+    .contact-info .hours {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .contact-info .hours h4 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .contact-info .hours p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
     .contact-form {
       flex: 1;
-      background: linear-gradient(145deg, #12121a, #0e0e15);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(145deg, var(--bg-card), #0e0e15);
+      border: 1px solid var(--border);
       border-radius: 14px;
       padding: 28px;
     }
@@ -456,7 +683,7 @@
     .contact-form label {
       display: block;
       font-size: 12px;
-      color: #888;
+      color: var(--text-muted);
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 6px;
@@ -484,7 +711,7 @@
     .contact-form select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
     .contact-form textarea { resize: vertical; min-height: 80px; }
     .contact-form .btn-submit {
-      background: #f0a500;
+      background: var(--gold);
       color: #0a0a0f;
       border: none;
       padding: 14px 36px;
@@ -493,11 +720,11 @@
       letter-spacing: 1px;
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s;
+      transition: var(--transition);
       font-family: 'Inter', sans-serif;
       width: 100%;
     }
-    .contact-form .btn-submit:hover { background: #ffb820; }
+    .contact-form .btn-submit:hover { background: var(--gold-hover); }
 
     /* Floating WhatsApp */
     .wa-float {
@@ -514,7 +741,7 @@
       justify-content: center;
       text-decoration: none;
       box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-      transition: all 0.3s;
+      transition: var(--transition);
     }
     .wa-float:hover {
       transform: scale(1.1);
@@ -526,7 +753,7 @@
     .qa-section {
       padding: 60px 40px 70px;
       background: linear-gradient(180deg, #0a0a0f 0%, #0e0e18 100%);
-      border-top: 1px solid rgba(255,255,255,0.03);
+      border-top: 1px solid var(--border);
     }
     .qa-section h2 {
       font-family: 'Orbitron', sans-serif;
@@ -536,7 +763,7 @@
       text-align: center;
       margin-bottom: 40px;
     }
-    .qa-section h2 span { color: #f0a500; }
+    .qa-section h2 span { color: var(--gold); }
     .qa-list {
       max-width: 700px;
       margin: 0 auto;
@@ -546,7 +773,7 @@
     }
     .qa-item {
       background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
       transition: border-color 0.3s;
@@ -583,14 +810,14 @@
       color: #666;
       transition: transform 0.3s;
     }
-    .qa-item.open .qa-arrow { transform: rotate(180deg); color: #f0a500; }
+    .qa-item.open .qa-arrow { transform: rotate(180deg); color: var(--gold); }
     .qa-a {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s ease;
       padding: 0 20px;
       font-size: 13px;
-      color: #888;
+      color: var(--text-muted);
       line-height: 1.7;
     }
     .qa-item.open .qa-a {
@@ -600,26 +827,125 @@
 
     /* Quiz */
     .quiz-section {
-      padding: 50px 40px;
-      background: #0a0a0f;
-      border-top: 1px solid rgba(255,255,255,0.03);
+      padding: 60px 40px 70px;
+      background: linear-gradient(180deg, #0e0e18, #0a0a0f);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
     .quiz-box {
       max-width: 600px;
       margin: 0 auto;
-      background: linear-gradient(145deg, #12121a, #0e0e15);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(145deg, var(--bg-card), #0e0e15);
+      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 28px;
+      padding: 32px;
       text-align: center;
     }
     .quiz-question {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      min-height: 48px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .quiz-options button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ccc;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+    }
+    .quiz-options button:hover {
+      border-color: rgba(240,165,0,0.3);
+      color: #fff;
+    }
+    .quiz-options button.selected {
+      border-color: var(--gold);
+      background: rgba(240,165,0,0.12);
+      color: var(--gold);
+    }
+    .quiz-result {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      min-height: 36px;
+      padding: 8px 0;
+    }
+    .quiz-result strong { color: var(--gold); }
+    .quiz-result-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .quiz-result-actions .btn-book-now {
+      background: var(--gold);
+      color: #0a0a0f;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 1px;
-      margin-bottom: 16px;
-      min-height: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .quiz-result-actions .btn-book-now:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+    .quiz-result-actions .btn-retry {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #aaa;
+      padding: 12px 32px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .quiz-result-actions .btn-retry:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .quiz-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 14px 40px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+    }
+    .quiz-btn:hover:not(:disabled) {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(240,165,0,0.06);
+    }
+    .quiz-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
     }
     .quiz-progress {
       display: flex;
@@ -633,130 +959,177 @@
       border-radius: 4px;
       transition: background 0.4s ease;
     }
-    .quiz-progress span.done { background: #f0a500; }
-    .quiz-btns {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
+    .quiz-progress span.done { background: var(--gold); }
+
+    /* CTA Banner */
+    .cta-banner {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(240,165,0,0.08), transparent);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .quiz-btns .quiz-btn ~ .quiz-btn {
-      flex: 1;
-      max-width: 160px;
+    .cta-banner h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
     }
-    .quiz-options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .quiz-options button {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #ccc;
-      padding: 14px 20px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-align: left;
-    }
-    .quiz-options button:hover {
-      border-color: rgba(240,165,0,0.3);
-      background: rgba(240,165,0,0.06);
-      color: #fff;
-    }
-    .quiz-options button.selected {
-      border-color: #f0a500;
-      background: rgba(240,165,0,0.12);
-      color: #f0a500;
-    }
-    .quiz-result {
-      font-size: 15px;
-      color: #aaa;
-      line-height: 1.6;
-      min-height: 40px;
-      padding: 12px 0;
-    }
-    .quiz-result strong { color: #f0a500; }
-    .quiz-btn {
-      width: 100%;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #fff;
-      padding: 16px 48px;
-      border-radius: 6px;
-      font-family: 'Inter', sans-serif;
+    .cta-banner h2 span { color: var(--gold); }
+    .cta-banner p {
+      color: var(--text-muted);
       font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .cta-banner .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-banner .cta-btns a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 4px;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: all 0.3s;
+      font-size: 13px;
+      letter-spacing: 1px;
       text-transform: uppercase;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
     }
-    .quiz-btn:hover:not(:disabled) {
-      border-color: #f0a500;
-      color: #f0a500;
-      background: rgba(240,165,0,0.06);
+    .cta-banner .cta-btns .cta-phone {
+      background: var(--gold);
+      color: #0a0a0f;
     }
-    .quiz-btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
+    .cta-banner .cta-btns .cta-phone:hover { background: var(--gold-hover); transform: translateY(-2px); }
+    .cta-banner .cta-btns .cta-wa {
+      background: #25D366;
+      color: #fff;
     }
+    .cta-banner .cta-btns .cta-wa:hover { background: #20bd5a; transform: translateY(-2px); }
 
     /* Footer */
     footer {
-      padding: 20px 40px;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 40px 40px 20px;
+      border-top: 1px solid var(--border);
+      background: #08080c;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-col h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .footer-col h3 span { color: var(--gold); }
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a {
+      color: var(--text-muted);
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #08080c;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    footer p { color: #555; font-size: 13px; }
-    footer .socials { display: flex; gap: 16px; }
-    footer .socials a {
+    .footer-bottom p { color: #555; font-size: 12px; }
+    .footer-bottom .socials { display: flex; gap: 16px; }
+    .footer-bottom .socials a {
       color: #555;
       text-decoration: none;
       font-size: 13px;
       transition: color 0.3s;
     }
-    footer .socials a:hover { color: #f0a500; }
+    .footer-bottom .socials a:hover { color: var(--gold); }
 
+    /* Media Queries */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
       .nav-links { display: none; }
 
+      section { padding: 50px 20px; }
+
       .hero { padding: 100px 20px 40px; min-height: auto; }
-      .hero h1 { font-size: 36px; letter-spacing: 3px; }
-      .hero p { font-size: 14px; max-width: 340px; }
-      .hero-cta { flex-direction: column; gap: 12px; }
+      .hero h1 { font-size: 32px; letter-spacing: 3px; }
+      .hero .hero-tagline { font-size: 14px; max-width: 340px; }
+      .hero .slogan { font-size: 11px; letter-spacing: 4px; }
+      .hero .slogan::before,
+      .hero .slogan::after { width: 16px; margin: 0 8px; }
+      .hero-cta { flex-direction: column; gap: 12px; width: 100%; }
       .hero-cta .btn-primary,
       .hero-cta .btn-outline { width: 100%; max-width: 280px; text-align: center; }
       .hero-stats { gap: 20px; padding: 30px 20px; }
-      .hero-stats .num { font-size: 30px; }
-      .hero-stats .label { font-size: 12px; }
-      .cars-section { padding: 60px 20px 80px; }
-      .section-header h2 { font-size: 24px; }
+      .hero-stats .num { font-size: 28px; }
+      .hero-stats .label { font-size: 11px; }
 
+      .section-header h2 { font-size: 24px; }
+      .section-header p { font-size: 13px; }
+
+
+      .reviews-swiper { padding: 20px 0 40px; }
+      .reviews-section .section-header { padding: 40px 20px 0; }
+      .review-card { padding: 20px 16px; margin: 0 2px; }
+      .review-card .review-text { font-size: 13px; }
+      .reviews-swiper .swiper-button-prev,
+      .reviews-swiper .swiper-button-next { display: none; }
+
+      .about-inner { flex-direction: column; gap: 24px; }
+      .about-content h2 { font-size: 22px; }
+      .about-content .about-features { grid-template-columns: 1fr; }
+
+      .cars-section { padding: 50px 20px; }
       .car-container {
         flex-direction: column !important;
         gap: 24px;
         padding: 30px 0;
       }
-
       .car-image { width: 100%; aspect-ratio: 16 / 9; }
       .car-info h3 { font-size: 22px; }
-      .car-info .price { font-size: 26px; }
-      .car-info .specs { gap: 14px; flex-wrap: wrap; }
+      .car-info .price { font-size: 24px; }
+      .car-info .specs { gap: 14px; }
       .car-info .specs span { font-size: 12px; }
+      .btn-rent { width: 100%; text-align: center; }
 
       .contact-section { padding: 40px 16px; }
       .contact-inner { flex-direction: column; gap: 24px; align-items: stretch; }
       .contact-form { padding: 20px; }
       .contact-info { text-align: center; }
       .contact-info h2 { font-size: 22px; }
-      .contact-info .contact-details a { font-size: 14px; justify-content: center; }
+      .contact-info .contact-details a,
+      .contact-info .contact-details .contact-row { font-size: 14px; justify-content: center; }
       .contact-info .contact-details .cd-icon { width: 36px; height: 36px; font-size: 16px; flex-shrink: 0; }
       .contact-form input,
       .contact-form select,
@@ -766,11 +1139,18 @@
       .qa-section h2 { font-size: 24px; }
       .qa-q { font-size: 13px; padding: 14px 16px; }
       .qa-a { font-size: 12px; }
-      .quiz-section { padding: 60px 20px; }
-      .quiz-box { padding: 24px; }
-      .quiz-question { font-size: 17px; }
-      .quiz-btn { width: 100%; }
-      footer { flex-direction: column; gap: 10px; text-align: center; padding: 20px; }
+
+      .quiz-section { padding: 40px 16px; }
+      .quiz-box { padding: 20px; }
+      .quiz-question { font-size: 15px; }
+      .quiz-options button { font-size: 13px; padding: 12px 16px; }
+
+      .cta-banner { padding: 40px 20px; }
+      .cta-banner h2 { font-size: 22px; }
+      .cta-banner .cta-btns { flex-direction: column; align-items: center; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -781,50 +1161,76 @@
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <!-- Nav -->
   <nav>
-    <div class="logo">RS<span>Car</span></div>
+    <div class="logo">RS<span>Car</span><span class="slogan">Drive Your Dream</span></div>
     <ul class="nav-links">
-      <li><a href="#fleet">Our Fleet</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">Our Fleet</a></li>
+
+      <li><a onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">Reviews</a></li>
+      <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
     </ul>
-    <button class="btn-book">Book Now</button>
+    <button class="btn-book">Browse Cars</button>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-badge">Drive in Comfort & Style</div>
+    <div class="hero-badge">Drive Premium</div>
     <h1><span class="line1">RS CAR</span><span class="line2">RENTAL</span></h1>
-    <div class="hero-sub">Self-Drive Car Rentals</div>
-    <p>Looking for the best cars at the best prices? Here's what we offer.</p>
+    <div class="slogan">Drive Your Dream</div>
+    <p class="hero-tagline">Trusted vehicles, transparent pricing, and professional customer support across Colombo &amp; all Sri Lanka.</p>
     <div class="hero-cta">
       <button class="btn-primary" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">Browse Our Fleet</button>
       <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
     </div>
   </section>
 
+  <!-- Stats -->
   <div class="hero-stats">
-    <div><div class="num">5+</div><div class="label">Vehicles</div></div>
-    <div><div class="num">5K+</div><div class="label">Happy Customers</div></div>
-    <div><div class="num">4.9</div><div class="label">Rating</div></div>
+    <div><div class="num">0</div><div class="label">Happy Customers</div></div>
+    <div><div class="num">0</div><div class="label">Years Experience</div></div>
+    <div><div class="num">0</div><div class="label">Customer Rating</div></div>
   </div>
 
-  <section class="quiz-section" id="quiz">
+
+
+  <!-- About Us -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="about-image reveal">
+        <img src="allCars.png" alt="RS Car Renter fleet" loading="lazy" />
+      </div>
+      <div class="about-content reveal">
+        <h2>About <span>RS Car</span></h2>
+        <p>RS Car Renter is a trusted name in Sri Lanka's vehicle rental industry. With over 5 years of experience, we pride ourselves on delivering premium self-drive cars, transparent pricing, and exceptional customer service. Whether you need a car for business, family travel, or a weekend getaway, we have the perfect vehicle for you.</p>
+        <div class="about-features">
+          <span><span class="af-icon">✓</span> 5+ Years Experience</span>
+          <span><span class="af-icon">✓</span> 500+ Happy Customers</span>
+          <span><span class="af-icon">✓</span> Island-wide Delivery</span>
+          <span><span class="af-icon">✓</span> Fully Insured Vehicles</span>
+          <span><span class="af-icon">✓</span> Transparent Pricing</span>
+          <span><span class="af-icon">✓</span> 24/7 Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="quiz-section">
     <div class="section-header reveal">
       <h2>Find Your <span>Perfect Ride</span></h2>
       <p>Answer a few questions and we'll match you with the ideal vehicle.</p>
     </div>
-    <div class="quiz-box">
+    <div class="quiz-box reveal">
       <div class="quiz-question" id="quizQuestion"></div>
       <div class="quiz-options" id="quizOptions"></div>
       <div class="quiz-result" id="quizResult"></div>
-      <div class="quiz-btns">
-        <button class="quiz-btn" id="quizNext">Next</button>
-        <button class="quiz-btn" id="quizRetry" style="display:none">Retry</button>
-      </div>
+      <button class="quiz-btn" id="quizNext">Next</button>
       <div class="quiz-progress" id="quizProgress"></div>
     </div>
   </section>
 
+  <!-- Cars/Fleet -->
   <section class="cars-section" id="fleet">
     <div class="section-header reveal">
       <h2>Our <span>Fleet</span></h2>
@@ -833,10 +1239,21 @@
     <div id="cars-list"></div>
   </section>
 
-  <section class="qa-section" id="why">
+  <!-- CTA Banner -->
+  <div class="cta-banner reveal">
+    <h2>Ready to <span>Drive?</span></h2>
+    <p>Call or WhatsApp us now to book your vehicle.</p>
+    <div class="cta-btns">
+      <a href="tel:+94752985632" class="cta-phone">📞 Call Now</a>
+      <a href="https://wa.me/94752985632" target="_blank" class="cta-wa">💬 WhatsApp Us</a>
+    </div>
+  </div>
+
+  <!-- Q&A -->
+  <section class="qa-section">
     <h2 class="reveal">Frequently Asked <span>Questions</span></h2>
     <div class="qa-list">
-      <div class="qa-item">
+      <div class="qa-item open">
         <div class="qa-q"><span class="qa-icon">🚗</span> How does self-drive work?<span class="qa-arrow">▼</span></div>
         <div class="qa-a">You pick a car, we deliver it to your doorstep, and you drive it yourself. No driver needed — just your license and a sense of adventure. Return it when you're done!</div>
       </div>
@@ -852,14 +1269,124 @@
         <div class="qa-q"><span class="qa-icon">⛽</span> How do the km limits work?<span class="qa-arrow">▼</span></div>
         <div class="qa-a">Every rental includes 150km free. Extra km are charged at just LKR 60/km. No hidden fees, no surprises.</div>
       </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="qa-icon">📞</span> How do I make a booking?<span class="qa-arrow">▼</span></div>
+        <div class="qa-a">Call us, send a WhatsApp message, or fill out the contact form. We typically respond within 30 minutes.</div>
+      </div>
     </div>
   </section>
 
+  <!-- Customer Reviews -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header reveal">
+      <h2>What Our <span>Customers Say</span></h2>
+      <p>Real reviews from real customers across Sri Lanka.</p>
+    </div>
+    <div class="reviews-swiper swiper reveal">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#2a2a2a" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#2a2a2a" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"Rented the Honda Vezel for a weekend trip to Sigiriya. The car was immaculate and delivery to my hotel was completely hassle-free. These guys make self-drive so easy!"</p>
+            <div class="review-author">— Ruwani Perera</div>
+            <div class="review-location">Colombo</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><defs><linearGradient id="hg2"><stop offset="50%" stop-color="#fbbc04"/><stop offset="50%" stop-color="#2a2a2a"/></linearGradient></defs><path fill="url(#hg2)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"First time renting self-drive in Sri Lanka and RS made it incredibly straightforward. The Toyota Axio was spotless, insurance was transparent, and there were absolutely no hidden charges."</p>
+            <div class="review-author">— Dinesh Kumar</div>
+            <div class="review-location">Jaffna</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#2a2a2a" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"Good experience overall. Booking was smooth and staff were professional. Had a minor delay with delivery but they kept me informed throughout. Transparent pricing as promised."</p>
+            <div class="review-author">— Samantha Fernando</div>
+            <div class="review-location">Negombo</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"Outstanding service! Booked the Suzuki Swift for a week-long trip and it performed beautifully. Free island-wide delivery is an absolute game-changer. Highly recommend."</p>
+            <div class="review-author">— Mohamed Rizvi</div>
+            <div class="review-location">Batticaloa</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><defs><linearGradient id="hg5"><stop offset="50%" stop-color="#fbbc04"/><stop offset="50%" stop-color="#2a2a2a"/></linearGradient></defs><path fill="url(#hg5)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#2a2a2a" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"Great rental service. The vehicle was spotless and the AC was ice cold, which is absolutely essential for Sri Lankan roads! Quick return process too."</p>
+            <div class="review-author">— Kavindya Jayawardena</div>
+            <div class="review-location">Kandy</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="review-card">
+            <div class="g-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            <div class="google-stars">
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path fill="#fbbc04" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="review-text">"Flawless from start to finish. Booked online, car was delivered right to my doorstep in Galle Fort. The Vezel was like brand new. Truly professional team — well deserved 5 stars!"</p>
+            <div class="review-author">— Thusitha Silva</div>
+            <div class="review-location">Galle</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <div class="contact-inner">
       <div class="contact-info">
         <h2 class="reveal">Get In <span>Touch</span></h2>
-        <p>Book your ride or ask us anything. We typically respond within 30 minutes on WhatsApp.</p>
+        <p class="contact-sub">Book your ride or ask us anything. We typically respond within 30 minutes.</p>
         <div class="contact-details">
           <a href="https://wa.me/94752985632" target="_blank">
             <span class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
@@ -869,10 +1396,15 @@
             <span class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <span>+94 75 298 5632</span>
           </a>
-          <a href="#">
+
+          <div class="contact-row">
             <span class="cd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <span>No. 09, Imraniya Road, Addalaichenai 01</span>
-          </a>
+            <span>No. 09, Imraniya Road, Addalaichenai, Sri Lanka</span>
+          </div>
+        </div>
+        <div class="hours">
+          <h4>Working Hours</h4>
+          <p>24/7 — Always Open</p>
         </div>
       </div>
       <form class="contact-form" id="contactForm">
@@ -885,9 +1417,9 @@
           <input type="tel" id="formPhone" placeholder="07X XXX XXXX" required />
         </div>
         <div class="form-group">
-          <label>Select Car</label>
+          <label>Select Vehicle</label>
           <select id="formCar">
-            <option value="" disabled selected>Select a car</option>
+            <option value="" disabled selected>Select a vehicle</option>
             <option value="Honda Vezel">Honda Vezel</option>
             <option value="Toyota Prius">Toyota Prius</option>
             <option value="Suzuki Stingray">Suzuki Stingray</option>
@@ -896,23 +1428,55 @@
           </select>
         </div>
         <div class="form-group">
+          <label>Pickup Date</label>
+          <input type="date" id="formDate" />
+        </div>
+        <div class="form-group">
           <label>Message</label>
-          <textarea id="formMessage" placeholder="Pickup date, duration, anything else..."></textarea>
+          <textarea id="formMessage" placeholder="Pickup date, duration, or any special requests..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Send via WhatsApp</button>
       </form>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 RS Car Renter (Pvt) Ltd. Colombo, Sri Lanka.</p>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">WhatsApp</a>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>RS<span>Car</span></h3>
+        <p>Premium self-drive car rentals in Sri Lanka. Trusted vehicles, transparent pricing, and professional customer support. Drive Your Dream with RS Car Renter.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">Our Fleet</a></li>
+
+          <li><a onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">Reviews</a></li>
+          <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+94752985632">+94 75 298 5632</a></li>
+          <li><a href="https://wa.me/94752985632" target="_blank">WhatsApp</a></li>
+          <li><a>Addalaichenai, Sri Lanka</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 RS Car Renter (Pvt) Ltd. Colombo, Sri Lanka. All rights reserved.</p>
+      <div class="socials">
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="https://wa.me/94752985632" target="_blank">WhatsApp</a>
+      </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const WA_NUM = '94752985632';
 
@@ -920,62 +1484,82 @@
       {
         name: 'Honda <span>Vezel</span>',
         type: 'SUV · Petrol Hybrid · Automatic',
+        year: '2019',
+        mileage: '65,000 km',
+        fuel: 'Hybrid',
+        transmission: 'Automatic',
+        seats: '5',
+        condition: 'Excellent',
+        location: 'Colombo',
         price: '12,000',
         km: '150',
-        seats: '5',
-        transmission: 'Auto',
-        fuel: 'Hybrid',
         img: 'HondaVezel.jpg',
         tag: 'Popular Choice',
-        desc: 'Luxury SUV with comfortable interior. Perfect for long trips.'
+        desc: 'Luxury SUV with comfortable interior, excellent fuel economy, and smooth handling. Perfect for long trips and family outings.'
       },
       {
         name: 'Toyota <span>Prius</span>',
         type: 'Sedan · Petrol Hybrid · Automatic',
+        year: '2018',
+        mileage: '78,000 km',
+        fuel: 'Hybrid',
+        transmission: 'Automatic',
+        seats: '5',
+        condition: 'Excellent',
+        location: 'Colombo',
         price: '12,000',
         km: '150',
-        seats: '5',
-        transmission: 'Auto',
-        fuel: 'Hybrid',
         img: 'ToyotaPrius.png',
         tag: 'Best Seller',
-        desc: 'Fuel-saving hybrid with smooth drive. Ideal for business and city travel.'
+        desc: 'Fuel-saving hybrid with an exceptionally smooth and quiet drive. Ideal for business travel and city commuting.'
       },
       {
         name: 'Suzuki <span>Stingray</span>',
         type: 'Hatchback · Petrol · Manual',
+        year: '2020',
+        mileage: '45,000 km',
+        fuel: 'Petrol',
+        transmission: 'Manual',
+        seats: '4',
+        condition: 'Good',
+        location: 'Colombo',
         price: '7,000',
         km: '150',
-        seats: '4',
-        transmission: 'Manual',
-        fuel: 'Petrol',
         img: 'CorvetteStingray.jpg',
         tag: 'Budget Pick',
-        desc: 'Compact and stylish. Great for daily travel. Budget-friendly choice.'
+        desc: 'Compact, stylish, and incredibly fuel-efficient. The perfect choice for daily commuting and city driving on a budget.'
       },
       {
         name: 'Toyota <span>Aqua</span>',
         type: 'Hatchback · Petrol Hybrid · Automatic',
+        year: '2017',
+        mileage: '82,000 km',
+        fuel: 'Hybrid',
+        transmission: 'Automatic',
+        seats: '5',
+        condition: 'Excellent',
+        location: 'Colombo',
         price: '9,000',
         km: '150',
-        seats: '5',
-        transmission: 'Auto',
-        fuel: 'Hybrid',
         img: 'ToyotaAqua.jpg',
         tag: 'Economy',
-        desc: 'Hybrid efficiency. Best for office, city and family rides.'
+        desc: 'Hybrid efficiency meets practicality. Best for office commutes, city errands, and comfortable family rides.'
       },
       {
         name: 'Nissan <span>Every</span>',
         type: 'Van · Petrol · Manual',
+        year: '2019',
+        mileage: '55,000 km',
+        fuel: 'Petrol',
+        transmission: 'Manual',
+        seats: '4',
+        condition: 'Good',
+        location: 'Colombo',
         price: '9,000',
         km: '150',
-        seats: '4',
-        transmission: 'Manual',
-        fuel: 'Petrol',
         img: 'NissanEvery.jpg',
         tag: 'Cargo',
-        desc: 'Spacious van. Perfect for groups and luggage.'
+        desc: 'Spacious and versatile van. Ideal for group travel, airport transfers, and carrying luggage or cargo.'
       }
     ];
 
@@ -984,6 +1568,7 @@
     cars.forEach((c, i) => {
       const div = document.createElement('div');
       div.className = 'car-container reveal' + (i % 2 === 1 ? ' reverse' : '');
+      div.id = 'car-' + i;
 
       div.innerHTML = `
         <div class="car-image">
@@ -994,15 +1579,18 @@
           <h3>${c.name}</h3>
           <div class="car-type">${c.type}</div>
           <div class="specs">
-            <span><span class="icon">👤</span> ${c.seats} Seats</span>
-            <span><span class="icon">⚙</span> ${c.transmission}</span>
+            <span><span class="icon">📅</span> ${c.year}</span>
             <span><span class="icon">⛽</span> ${c.fuel}</span>
+            <span><span class="icon">⚙</span> ${c.transmission}</span>
+            <span><span class="icon">👤</span> ${c.seats} Seats</span>
           </div>
           <p class="desc">${c.desc}</p>
           <div class="price-row">
             <div class="price">LKR ${c.price} <small>/ ${c.km} km</small></div>
           </div>
-          <button class="btn-rent">Get a Trip</button>
+          <div class="car-actions">
+            <button class="btn-rent">Rent This Car</button>
+          </div>
         </div>
       `;
 
@@ -1014,7 +1602,7 @@
         const car = cars[i];
         const name = car.name.replace(/<[^>]*>/g, '').trim();
         const msg = encodeURIComponent(
-          `Hi! I'm interested in renting the ${name} (LKR ${car.price}/${car.km}km). Please share availability and details.`
+          `Hi! I'm interested in renting the ${name} (${car.year}, ${car.mileage}, LKR ${car.price}/${car.km}km). Please share availability and details.`
         );
         window.open(`https://wa.me/${WA_NUM}?text=${msg}`, '_blank');
       });
@@ -1023,10 +1611,10 @@
     // Stats counter animation
     const statsEl = document.querySelector('.hero-stats');
     const nums = statsEl.querySelectorAll('.num');
-    const targets = [5, 5, 4.9];
-    const suffixes = ['+', 'K+', ''];
+    const targets = [1000, 5, 4.9];
+    const suffixes = ['+', '+', ''];
     let animated = false;
-    const duration = 1500;
+    const duration = 2000;
 
     function animateStats() {
       if (animated) return;
@@ -1052,149 +1640,6 @@
       if (entries[0].isIntersecting) animateStats();
     }, { threshold: 0.5 });
     obs.observe(statsEl);
-
-    // Quiz
-    const quizData = [
-      {
-        q: 'What is your main travel purpose?',
-        opts: [
-          { label: 'Family Trip', car: 'Honda Vezel', msg: 'The spacious Vezel is perfect for the whole family!' },
-          { label: 'Business Travel', car: 'Toyota Prius', msg: 'The Prius is ideal — smooth, efficient, and professional.' },
-          { label: 'Weekend Adventure', car: 'Stingray', msg: 'The Stingray is perfect for daily commutes — reliable and easy to park.' },
-          { label: 'City Commute', car: 'Toyota Aqua', msg: 'The Aqua is nimble and fuel-friendly for city life.' },
-          { label: 'Group Haul', car: 'Nissan Every', msg: 'The Every van has all the space you need.' }
-        ]
-      },
-      {
-        q: 'How many passengers?',
-        opts: [
-          { label: 'Just me', car: 'Stingray', msg: 'Solo? The Stingray is nimble, efficient, and easy on the wallet.' },
-          { label: '2 people', car: 'Toyota Aqua', msg: 'The Aqua is perfect for two — compact and efficient.' },
-          { label: '3-5 people', car: 'Honda Vezel', msg: 'The Vezel seats everyone comfortably.' },
-          { label: '5+ people', car: 'Nissan Every', msg: 'Grab the Every van — plenty of room for all.' }
-        ]
-      },
-      {
-        q: 'What matters most to you?',
-        opts: [
-          { label: 'Fuel Efficiency', car: 'Toyota Prius', msg: 'The Prius is the king of fuel savings!' },
-          { label: 'Style & Status', car: 'Stingray', msg: 'The Stingray is practical, stylish, and budget-friendly.' },
-          { label: 'Space & Comfort', car: 'Honda Vezel', msg: 'The Vezel offers premium space and comfort.' },
-          { label: 'Affordability', car: 'Toyota Aqua', msg: 'The Aqua gives you the most bang for your buck.' }
-        ]
-      },
-      {
-        q: 'How far are you planning to drive?',
-        opts: [
-          { label: 'Short city trips', car: 'Toyota Aqua', msg: 'Aqua is quick, easy to park, and efficient.' },
-          { label: 'Long highway drives', car: 'Honda Vezel', msg: 'The Vezel is built for long, comfortable journeys.' },
-          { label: 'Mixed daily use', car: 'Toyota Prius', msg: 'Prius handles it all — city and highway with ease.' },
-          { label: 'Just for fun', car: 'Stingray', msg: 'Stingray — the perfect city car for any trip.' }
-        ]
-      },
-      {
-        q: 'What is your budget range?',
-        opts: [
-          { label: 'Economy (under 10K)', car: 'Toyota Aqua', msg: 'The Aqua gives you the best value for your money.' },
-          { label: 'Mid-range (10K-15K)', car: 'Honda Vezel', msg: 'The Vezel offers premium comfort at a fair price.' },
-          { label: 'Premium (15K+)', car: 'Stingray', msg: 'The Stingray offers the best bang for your buck — reliable and affordable.' },
-          { label: 'Best value', car: 'Toyota Prius', msg: 'The Prius is the smartest investment for any trip.' }
-        ]
-      }
-    ];
-
-    const totalQ = quizData.length;
-    const qEl = document.getElementById('quizQuestion');
-    const optsEl = document.getElementById('quizOptions');
-    const resultEl = document.getElementById('quizResult');
-    const nextBtn = document.getElementById('quizNext');
-    const retryBtn = document.getElementById('quizRetry');
-    const progressEl = document.getElementById('quizProgress');
-
-    function shuffle(arr) {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    const votes = { 'Honda Vezel': 0, 'Toyota Prius': 0, 'Stingray': 0, 'Toyota Aqua': 0, 'Nissan Every': 0 };
-    const carMsgs = {
-      'Toyota Aqua': 'The Aqua is perfect for two — compact and efficient.',
-      'Honda Vezel': 'The Vezel offers the best all-round space and comfort.',
-      'Toyota Prius': 'The Prius is the smart choice for efficiency and style.',
-      'Stingray': 'The Stingray is the perfect city companion — compact, efficient, and affordable.',
-      'Nissan Every': 'The Every van gives you maximum space and versatility.'
-    };
-    let shuffledQuiz = shuffle([...quizData]);
-    let answers = [];
-    let quizIndex = 0;
-    progressEl.innerHTML = '<span></span>'.repeat(totalQ);
-
-    function renderQuestion() {
-      if (quizIndex >= shuffledQuiz.length) {
-        progressEl.querySelectorAll('span').forEach(s => s.classList.add('done'));
-        const sorted = Object.entries(votes).sort((a, b) => b[1] - a[1]);
-        const topCar = sorted[0][0];
-        qEl.textContent = 'Your Perfect Match!';
-        optsEl.innerHTML = '';
-        resultEl.innerHTML = `We recommend the <strong>${topCar}</strong> — ${carMsgs[topCar]}`;
-        nextBtn.textContent = 'Book Now';
-        nextBtn.disabled = false;
-        nextBtn.onclick = () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        retryBtn.style.display = 'inline-block';
-        retryBtn.onclick = () => {
-          quizIndex = 0;
-          answers = [];
-          Object.keys(votes).forEach(k => votes[k] = 0);
-          shuffledQuiz = shuffle([...quizData]);
-          retryBtn.style.display = 'none';
-          nextBtn.textContent = 'Next';
-          renderQuestion();
-        };
-        return;
-      }
-
-      progressEl.querySelectorAll('span').forEach((s, i) => {
-        s.classList.toggle('done', i < quizIndex);
-      });
-
-      const item = shuffledQuiz[quizIndex];
-      qEl.textContent = item.q;
-      optsEl.innerHTML = '';
-      resultEl.textContent = '';
-      nextBtn.disabled = true;
-      nextBtn.textContent = 'Next';
-      nextBtn.onclick = () => { quizIndex++; renderQuestion(); };
-      const saved = answers[quizIndex];
-      const shuffledOpts = shuffle([...item.opts]);
-      shuffledOpts.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.textContent = opt.label;
-        if (saved && saved.label === opt.label) {
-          btn.classList.add('selected');
-          nextBtn.disabled = false;
-        }
-        btn.addEventListener('click', () => {
-          optsEl.querySelectorAll('button').forEach(b => {
-            if (b.classList.contains('selected')) {
-              const oldLabel = b.textContent;
-              const oldOpt = item.opts.find(o => o.label === oldLabel);
-              if (oldOpt) votes[oldOpt.car]--;
-            }
-            b.classList.remove('selected');
-          });
-          btn.classList.add('selected');
-          votes[opt.car] = (votes[opt.car] || 0) + 1;
-          answers[quizIndex] = opt;
-          nextBtn.disabled = false;
-        });
-        optsEl.appendChild(btn);
-      });
-    }
-
-    renderQuestion();
 
     // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1231,6 +1676,7 @@
       const name = document.getElementById('formName').value.trim();
       const phone = document.getElementById('formPhone').value.trim();
       const car = document.getElementById('formCar').value;
+      const date = document.getElementById('formDate').value;
       const message = document.getElementById('formMessage').value.trim();
 
       const msg = encodeURIComponent(
@@ -1238,11 +1684,184 @@
         `Name: ${name}%0A` +
         `Phone: ${phone}%0A` +
         `Car: ${car}%0A` +
+        `Pickup Date: ${date || 'Not specified'}%0A` +
         `Message: ${message || '—'}`
       );
       window.open(`https://wa.me/${WA_NUM}?text=${msg}`, '_blank');
     });
-  </script>
 
+    // Reviews carousel (Swiper)
+    new Swiper('.reviews-swiper', {
+      loop: true,
+      loopPreventsSlide: false,
+      speed: 500,
+      slidesPerView: 1.25,
+      centeredSlides: true,
+      spaceBetween: 12,
+      grabCursor: true,
+      breakpoints: {
+        768: { slidesPerView: 1.25, spaceBetween: 12 },
+        0: { slidesPerView: 1.08, spaceBetween: 8 },
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // Quiz
+    const quizData = [
+      {
+        q: 'What is your main travel purpose?',
+        opts: [
+          { label: 'Family Trip', car: 'Honda Vezel', msg: 'The spacious Vezel is perfect for the whole family!' },
+          { label: 'Business Travel', car: 'Toyota Prius', msg: 'The Prius is ideal — smooth, efficient, and professional.' },
+          { label: 'Weekend Adventure', car: 'Suzuki Stingray', msg: 'The Stingray is perfect — reliable and easy to drive.' },
+          { label: 'City Commute', car: 'Toyota Aqua', msg: 'The Aqua is nimble and fuel-friendly for city life.' },
+          { label: 'Group Haul', car: 'Nissan Every', msg: 'The Every van has all the space you need.' }
+        ]
+      },
+      {
+        q: 'How many passengers?',
+        opts: [
+          { label: 'Just me', car: 'Suzuki Stingray', msg: 'Solo? The Stingray is nimble and efficient.' },
+          { label: '2 people', car: 'Toyota Aqua', msg: 'The Aqua is perfect for two — compact and efficient.' },
+          { label: '3-5 people', car: 'Honda Vezel', msg: 'The Vezel seats everyone comfortably.' },
+          { label: '5+ people', car: 'Nissan Every', msg: 'Grab the Every van — plenty of room for all.' }
+        ]
+      },
+      {
+        q: 'What matters most to you?',
+        opts: [
+          { label: 'Fuel Efficiency', car: 'Toyota Prius', msg: 'The Prius is the king of fuel savings!' },
+          { label: 'Style & Status', car: 'Suzuki Stingray', msg: 'The Stingray is stylish and budget-friendly.' },
+          { label: 'Space & Comfort', car: 'Honda Vezel', msg: 'The Vezel offers premium space and comfort.' },
+          { label: 'Affordability', car: 'Toyota Aqua', msg: 'The Aqua gives you the most bang for your buck.' }
+        ]
+      },
+      {
+        q: 'How far are you planning to drive?',
+        opts: [
+          { label: 'Short city trips', car: 'Toyota Aqua', msg: 'Aqua is quick, easy to park, and efficient.' },
+          { label: 'Long highway drives', car: 'Honda Vezel', msg: 'The Vezel is built for long comfortable journeys.' },
+          { label: 'Mixed daily use', car: 'Toyota Prius', msg: 'Prius handles it all — city and highway with ease.' },
+          { label: 'Just for fun', car: 'Suzuki Stingray', msg: 'Stingray — the perfect city car for any trip.' }
+        ]
+      },
+      {
+        q: 'What is your budget range?',
+        opts: [
+          { label: 'Economy (under 10K)', car: 'Toyota Aqua', msg: 'The Aqua gives you the best value for your money.' },
+          { label: 'Mid-range (10K-15K)', car: 'Honda Vezel', msg: 'The Vezel offers premium comfort at a fair price.' },
+          { label: 'Premium (15K+)', car: 'Suzuki Stingray', msg: 'The Stingray is reliable and affordable.' },
+          { label: 'Best value', car: 'Toyota Prius', msg: 'The Prius is the smartest investment for any trip.' }
+        ]
+      }
+    ];
+
+    const tQ = quizData.length;
+    const qEl = document.getElementById('quizQuestion');
+    const oEl = document.getElementById('quizOptions');
+    const rEl = document.getElementById('quizResult');
+    const nBtn = document.getElementById('quizNext');
+    const pEl = document.getElementById('quizProgress');
+    let qIdx = 0;
+    let ans = [];
+
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+      return a;
+    }
+
+    const msgs = [
+      'The Vezel offers the best all-round space and comfort.',
+      'The Prius is the smart choice for efficiency and style.',
+      'The Stingray is the perfect city companion — compact and affordable.',
+      'The Aqua is perfect for a balanced and efficient drive.',
+      'The Every van gives you maximum space and versatility.'
+    ];
+    const carsList = ['Honda Vezel', 'Toyota Prius', 'Suzuki Stingray', 'Toyota Aqua', 'Nissan Every'];
+    const votes = { 'Honda Vezel': 0, 'Toyota Prius': 0, 'Suzuki Stingray': 0, 'Toyota Aqua': 0, 'Nissan Every': 0 };
+
+    let shuffled = shuffle([...quizData]);
+    pEl.innerHTML = '<span></span>'.repeat(tQ);
+
+    function renderQ() {
+      if (qIdx >= shuffled.length) {
+        pEl.querySelectorAll('span').forEach(s => s.classList.add('done'));
+        const sorted = Object.entries(votes).sort((a, b) => b[1] - a[1]);
+        const top = sorted[0][0];
+        const ci = carsList.indexOf(top);
+        qEl.textContent = 'Your Perfect Match!';
+        oEl.innerHTML = '';
+        rEl.innerHTML = 'We recommend the <strong>' + top + '</strong> \u2014 ' + msgs[ci];
+        const actions = document.createElement('div');
+        actions.className = 'quiz-result-actions';
+        const bookBtn = document.createElement('button');
+        bookBtn.className = 'btn-book-now';
+        bookBtn.textContent = 'Book Now';
+        bookBtn.addEventListener('click', () => {
+          document.getElementById('car-' + ci).scrollIntoView({ behavior: 'smooth' });
+        });
+        const retryBtn = document.createElement('button');
+        retryBtn.className = 'btn-retry';
+        retryBtn.textContent = 'Retry';
+        retryBtn.addEventListener('click', () => {
+          nBtn.style.display = '';
+          Object.keys(votes).forEach(k => votes[k] = 0);
+          ans = [];
+          qIdx = 0;
+          shuffled = shuffle([...quizData]);
+          pEl.innerHTML = '<span></span>'.repeat(tQ);
+          renderQ();
+        });
+        actions.appendChild(bookBtn);
+        actions.appendChild(retryBtn);
+        rEl.appendChild(actions);
+        nBtn.style.display = 'none';
+        return;
+      }
+
+      pEl.querySelectorAll('span').forEach((s, i) => s.classList.toggle('done', i < qIdx));
+      const item = shuffled[qIdx];
+      qEl.textContent = item.q;
+      oEl.innerHTML = '';
+      rEl.textContent = '';
+      nBtn.disabled = true;
+      nBtn.onclick = () => { qIdx++; renderQ(); };
+
+      const saved = ans[qIdx];
+      const shuffledOpts = shuffle([...item.opts]);
+      shuffledOpts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.textContent = opt.label;
+        if (saved && saved.label === opt.label) { btn.classList.add('selected'); nBtn.disabled = false; }
+        btn.addEventListener('click', () => {
+          oEl.querySelectorAll('button').forEach(b => {
+              if (b.classList.contains('selected')) {
+              const old = item.opts.find(o => o.label === b.textContent);
+              if (old) votes[old.car]--;
+            }
+            b.classList.remove('selected');
+          });
+          btn.classList.add('selected');
+          votes[opt.car]++;
+          ans[qIdx] = opt;
+          nBtn.disabled = false;
+        });
+        oEl.appendChild(btn);
+      });
+    }
+
+    renderQ();
+  </script>
 </body>
 </html>
