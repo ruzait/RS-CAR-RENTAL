@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rscarrental.lk/sitemap.xml
